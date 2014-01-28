@@ -13,6 +13,8 @@
 		add_action( 'wp_enqueue_scripts', 'core_mods' );
 	}
 
+
+
 // Clean up the <head>, if you so desire.
 		function removeHeadLinks() {
 	   	remove_action('wp_head', 'rsd_link');
@@ -109,7 +111,7 @@ function remove_acf_menu()
  
     // provide a list of usernames who can edit custom field definitions here
     $admins = array( 
-        'peopleinthecompound',
+        'paulburgess',
         'admin'
     );
  
@@ -226,21 +228,6 @@ add_action('_admin_menu', 'remove_editor_menu', 1);
 
 // ================================================
 
-function remove_menus () {
-// leave the itmes in that you want removed
-
-global $menu;
-	$restricted = array( __('Links'), __('Comments'));
-	end ($menu);
-	while (prev($menu)){
-		$value = explode(' ',$menu[key($menu)][0]);
-		if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
-	}
-}
-
-add_action('admin_menu', 'remove_menus');
-
-// ================================================
 
 // HIDE ALL THEME OPTIONS
 function hide_menu() {
