@@ -150,7 +150,7 @@ add_action('admin_menu', 'remove_menus');
 // ================================================
 
 function remove_footer_admin () {
-echo '<p>LTG</p>';
+echo '<p>Custom footer text</p>';
 }
 add_filter('admin_footer_text', 'remove_footer_admin');
 
@@ -315,6 +315,9 @@ function deserialize_device_sizes($serialized_sizes) {
     return $device_sizes;
 }
 
+
+// Now add the_device(); to the html class to return desktop | tablet | mobile
+// <html class="desktop"> 
 
 /* =============================================
 =============================================
