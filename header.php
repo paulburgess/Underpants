@@ -20,6 +20,8 @@
 		if (is_search())
 			echo '<meta name="robots" content="noindex, nofollow" />';
 	?>
+	
+	<meta name = "viewport" content = "width=device-width">
 
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 
