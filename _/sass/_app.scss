@@ -1,0 +1,41 @@
+// Global Foundation Settings
+@import "settings";
+@import "normalize";
+
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+@import "foundation/components/global"; // *always required
+@import "foundation/components/grid";
+
+//
+// Use this grid if you want to start using the new Foundation 5 grid early.
+// It will change breakpoints to min-width: 640px and 1024px.
+//
+// @import "foundation/components/grid-5";
+//
+
+@import 'compass/css3';
+
+@import "foundation/components/block-grid";
+
+
+/* NOTE: remove the one I don't use */
+@import "compass/utilities/lists/horizontal-list";
+@import "compass/utilities/lists/inline-block-list";
+
+@import "compass/layout/grid-background";
+@import "compass/typography/vertical_rhythm";
+$base-font-size:16px;
+$base-line-height: 24px;
+@include establish-baseline;
+
+
+/* Foundation is putting line-height: 1 on the body (because I am not using their inbuilt vertical rhythm settings at the mo, trying it out directly in Compass) and overriding the rules above which are applied to html tag so: */ 
+body {
+	line-height: inherit;
+}
+
+
+
+

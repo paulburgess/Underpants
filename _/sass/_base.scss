@@ -1,0 +1,263 @@
+@import 'compass/css3';
+
+$green: #1690A4;
+$orange: #F17E1D;
+$purple: #7964B0;
+$pink: #E92358;
+$grey: #C5C5C5;
+
+/* Mixins */
+
+
+@mixin button ($bg: $green) {
+	
+	color: #FFF;
+	background: $bg;
+	padding:6px 10px;
+	@include border-radius(1000px);
+	text-decoration: none;
+	display: inline-block;
+	border: 0;
+	
+	&:hover {
+		background: lighten($bg,8%);
+		color:#FFF;
+	}
+	
+}
+
+@mixin list-image ($img: list_image_orange-arrow) {
+
+	margin: 0;
+	padding: 0;
+	list-style-image: url('../img/' + $img + '.png');
+	list-style-position: inside;
+
+}
+
+/* For active navs - using mixin insread of placehodler/extend so selectors are not merged - awkward selctors on this blog/about bottom arrow */
+@mixin bottom-arrow {
+	top: 48px;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #ffffff;
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+
+
+a {
+	
+	color:$orange;
+	text-decoration: none;
+	
+	&:hover {
+		color: lighten($orange,8%);
+	}
+	
+	
+}
+
+
+/* == Working with bottom margins only */
+
+h1, h2, h3, h4, h5, h6, p, li, ul {
+	margin-top: 0;
+}
+
+/* == Buttons */
+
+.button {
+	color: #FFF;
+	text-align: center;
+	text-transform: uppercase;
+	background: $green;
+	display: inline-block;
+	padding: 10px 10%;
+	
+	&:hover {
+		background: lighten($green, 5%);
+		color: #FFF;
+	}
+	
+}
+
+
+
+
+/* == Nav lists */
+
+
+
+header, footer {
+
+	nav ul {
+		
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		
+		
+		li {
+			float: left;
+			position: relative;
+			
+		}
+		
+	}
+
+}
+
+.side-nav ul {
+	@include list-image;
+	
+	li {
+		text-transform: uppercase;
+		@include adjust-font-size-to(14px);		
+	}
+	
+	a {
+		color: #111;
+		
+		&:hover {
+			color: $orange;
+		}
+		
+	}
+	
+}
+
+
+header.main {
+
+	li.current-menu-item,
+	li.current-page-ancestor {
+		font-weight: 700;		
+	}
+
+}
+
+/* About - active navs */
+
+/*
+
+About - 17
+Blog - 87
+Team - 85
+*/
+
+.page-id-17 a.about,
+.page-id-87 a.blog,
+.page-id-85 a.team,
+.single-team-member a.team,
+.home a.about,
+.blog a.blog,
+.single a.blog
+ {
+color: #FFF;
+background: $green;
+	
+}
+
+
+
+/* Headers with shadows / Common template */
+
+.page-template-page-resellers-php,
+.page-template-default,
+.single
+ {
+
+	header.main {
+		border-bottom: 1px #CCC solid;
+		@include box-shadow(#CCC 0px 4px 15px);	
+	}
+
+
+	
+	
+	.intro {
+		padding-top: rhythm(1.5);
+		padding-bottom: rhythm(1.5);
+		margin-bottom: 0;
+	}
+	
+	.intro h1 {
+	@include adjust-font-size-to(48px);	
+	@include adjust-leading-to(.75);
+	color: #111;
+	text-align: left;			
+	}
+	
+	
+	h2 {
+		font-weight: normal;
+		@include adjust-font-size-to(34px);
+		@include adjust-leading-to(.75);			
+	}
+	
+	h3 {
+	color: $green;
+	font-weight: normal;
+	margin-bottom: rhythm(.2);	
+	}	
+
+	
+	
+}
+
+
+
+
+
+/* Apply a natural box layout model to all elements: http://paulirish.com/2012/box-sizing-border-box-ftw/ */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.chromeframe {position: absolute; top: 0;padding:20px;background: #FFF;color: #666;}
+
+/* -------------------------------------------------------------------------------*/
+
+::-moz-selection{background: #333; color: #fff; text-shadow: none;}
+::selection {background: #333; color: #fff; text-shadow: none;} 
+
+
+/*
+a {color: blue;text-decoration: none;}
+a:hover {color: lighten(blue,10%);}
+*/
+
+a:link {-webkit-tap-highlight-color: #333;} 
+
+
+input:-moz-placeholder { color:#CCC; }
+textarea:-moz-placeholder { color:#CCC; }
+
+
+.cf { *zoom: 1; }
+.cf:before,
+.cf:after{ content: " "; display: table; }
+.cf:after { clear: both; }
+
+address {
+	font-style: normal;
+}
+
+.hidden {
+	display: none !important;
+}
+
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+
+ /* RETINA BITS */
+
+}
