@@ -4,3 +4,9 @@ A barely dressed Wordpress starter theme.<br />A basic and simple starting point
 
 Meant for client specific themes, with options and configfuration taken out.<br />
 Focus the client on maintaining content easily, not layout.
+
+
+Next:
+- Add genericon files
+- Bake in ACF
+- Update /strip down page templates
