@@ -4,7 +4,7 @@
 <!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" <?php language_attributes(); ?>> <![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js <?php the_device(); ?>" <?php language_attributes(); ?>><!--<![endif]-->
 <!-- the "no-js" class is for Modernizr. --> 
 
 <head id="www-site-com" data-template-set="underpants-wordpress-theme">
