@@ -379,6 +379,8 @@ add_image_size('Square - 300x300', 300, 300, TRUE);
 add_image_size('Square - 175x175', 175, 175, TRUE);
 add_image_size('Icon - 46x46', 46, 46, TRUE);
 //add_image_size('Featured', 640, 220, TRUE);
+
+// To hide these sizes from the admin area, comment out line below
 add_filter( 'image_size_names_choose', 'custom_image_sizes' );
 }
 add_action( 'after_setup_theme', 'custom_image_setup' );
