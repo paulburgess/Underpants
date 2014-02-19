@@ -69,6 +69,21 @@ function remove_width_attribute( $html ) {
 update_option('image_default_link_type','none');
 
 
+// logo link
+function wpc_url_login(){
+     return "/";
+}
+add_filter('login_headerurl', 'wpc_url_login');
+
+
+// logo
+// add own css file
+function login_css() {
+     wp_enqueue_style( 'login_css', get_template_directory_uri() . '/_/css/login.css' );
+}
+add_action('login_head', 'login_css');
+
+
 //change the menu items label Posts to News
 function change_post_menu_label() {
     global $menu;
