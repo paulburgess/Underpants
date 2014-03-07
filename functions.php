@@ -50,6 +50,25 @@ function the_slug() {
     return $slug; 
 }
 
+
+// disable single post views on certain CPT - useful if using CPTs to build a single page
+// http://wordpress.stackexchange.com/questions/128636/how-to-disable-the-single-view-for-a-custom-post-type
+
+/*
+add_action( 'template_redirect', 'wpse_128636_redirect_post' );
+
+function wpse_128636_redirect_post() {
+  $queried_post_type = get_query_var('post_type');
+  if ( is_single() && 'sample_post_type' ==  $queried_post_type ) {
+    wp_redirect( home_url(), 301 );
+    exit;
+  }
+}
+*/
+
+
+
+
 // =================================================================
 // ====== Custom admin + menus
 // =================================================================
