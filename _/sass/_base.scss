@@ -253,6 +253,21 @@ address {
 	display: none !important;
 }
 
+/* Placeholder styling */
+::-webkit-input-placeholder { /* WebKit browsers */
+ color:    #000000;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+ color:    #000000;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+ color:    #000000;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+ color:    #000000;
+}
+
+
 @media only screen and (min--moz-device-pixel-ratio: 2),
 only screen and (-o-min-device-pixel-ratio: 2/1),
 only screen and (-webkit-min-device-pixel-ratio: 2),
