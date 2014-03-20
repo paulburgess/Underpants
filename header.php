@@ -33,6 +33,13 @@
 
 	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" />
 	
+	<!--[if (gt IE 8) | (IEMobile)]><!-->
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_/css/screen.css" />
+	<!--<![endif]-->		
+
+	<!--[if (lt IE 9) & (!IEMobile)]>
+	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/_/css/ie.css" />
+	<![endif]-->
 
 	
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
