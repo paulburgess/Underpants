@@ -74,6 +74,9 @@ function wpse_128636_redirect_post() {
 // =================================================================
 
 
+/* Theme support for menus */
+add_theme_support( 'menus' );
+
 // Remove width and height attributes from images via WYSIWYG/admin
 add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
 add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
