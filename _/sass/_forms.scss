@@ -1,0 +1,109 @@
+/* Form elements 
+========================================= */
+
+
+
+input,textarea {
+	background: #666;
+	color: #333;
+	border:0;
+	padding: 15px;
+	font-size: emCalc(14);
+		
+	&:focus {
+		background: #FFF;
+	}
+
+}
+
+input[type="submit"]{
+	background: #111;
+	color: #CCC;
+	border: 0;
+	padding: 15px;
+	
+	&:hover {
+		color: $brown;
+	}
+	
+}
+
+
+.select select {
+   background: #666;
+   color: #A7A7A7;
+   width: 268px;
+   padding: 15px;
+   font-size: emCalc(14);
+   border: 0;
+   border-radius: 0;
+   /* height: 34px; */
+   -webkit-appearance: none;
+   }
+
+/* Subscribe form */
+
+
+.signup {
+	
+	form {
+		background: #333;
+		padding: emCalc(30);
+		text-align: center;
+		
+		select {
+			display: block;
+			margin: emCalc(20) auto;
+			width: 40%;
+		}
+		
+	}
+	
+}
+
+
+
+@include breakpoint(max-width emCalc(890)){
+	.signup form {
+		
+		input[type="text"]{
+			width: 100%;
+			margin-bottom: 15px;
+		}
+		
+		
+	}
+}
+
+@include breakpoint(emCalc(891)){
+	.signup form {
+
+		input[type="text"]{
+			width: 40%;
+		}
+		
+	}
+}
+
+
+/* Comments */
+
+textarea {
+	width: 80%;
+}
+
+
+
+::-webkit-input-placeholder { /* WebKit browsers */
+
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+ 
+}
+
