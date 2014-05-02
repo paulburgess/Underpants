@@ -1,30 +1,174 @@
-@import "app";
+@import 'compass/css3';
+
+
+/* Colours */
+$light-green: #D4EB48;
+$brown: #F1B83F;
+$light-blue: #C4E1FD;
+
+/* $link: $light-green; */
+
+/* ==================== */
+/* ==================== */
+@import "breakpoint";
+@import "singularitygs";
+
+// think in pixels - output in ems
+@import "emCalc";
+
+
+//Global Foundation Settings
+@import "settings";
+@import "normalize";
+
+
+
+/* Base styles */
 @import "base";
-@import "magnific";
-@import "genericons";
+@import "forms";
 
-
-@media (min-width:1em) {
-    @import "__size_small-up";
-   }
-
-
-
-/* Do some fine tuning if required */
+/* Icons */
+@import "icons";
 /*
-@media (max-width:23.750em) {
+@import "genericons";
+@import "monosocialicons";
+*/
 
-	.selector {
+/* Overlays */
+@import "magnific";
 
+
+
+
+@import "foundation/components/global"; // *always required
+/* @import "foundation/components/grid"; */
+@import "foundation/components/block-grid";
+
+
+@include add-grid(2); /* Mobile first */
+@include add-grid(12 at $breakpoint-medium-up);
+/*
+@include add-grid(9 at 40em);
+@include add-grid(12 at 50em);
+*/
+
+
+@include add-gutter(20px);
+
+
+
+
+/* Basics
+---------------------------------- */
+
+body.home,
+html.home {
+	height: 100%;
+}
+
+html {
+	background-color: #333; 
+	background-image: url('../img/inner-bg.png');
+
+}
+
+body {
+	font-family: 'Open Sans', Arial, sans-serif;
+	line-height: 100%;
+}
+
+#{headings()} {
+    text-transform: uppercase;
+    margin-top: 0;
+    font-family: Arial, sans-serif;
+    line-height: 100%;
+    font-weight: normal;
+    }
+
+
+
+
+/* Acts like a 'row' */
+.wrapper {
+	max-width: 1140px;
+	/* min-height: 100%; */
+	margin: 0 auto;
+	/* @include background-grid(blue); */
+	@include clearfix;
+	padding: 0 20px;
+
+}
+
+
+
+body {
+	color: #CCC;
+	background: transparent;
+}
+
+.intro {
+
+	height: 75%;
+	background-image: url();
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center top;
+	position: relative;
+	margin-bottom: emCalc(40);
+
+}
+/*
+
+Target awkward size tablet screen e.g. Nexus 7 + shallow screens
+(min-width emCalc(400))
+*/
+
+/*
+@include breakpoint((max-height emCalc(711)) ){
+
+	
+	.intro {
+		height: 90%;
 	}
 
 }
 */
 
+
+/* /////// Breakpoint syntax */
+
+
+@include breakpoint($breakpoint-small-up){
+	.header-strip {
+		margin-bottom: 30px;	
+	}
+	
+	
+}
+
+
+
+
+
+
+/* Header / Logo
+----------------------------------------------- */
+/* @import "header"; */
+
+
+/* Navigation 
+----------------------------------------------- */
+/* @import "nav"; */
+
+/* etc. */
+
+
+/* IE fixes
+--------------------------------------- */
+
+.ie8 {
+
+
+} 
  
-
-
-@media (min-width:48em) {
-    @import "__size_medium-up";
-  }
-

@@ -393,6 +393,22 @@ add_filter("gform_confirmation_anchor", create_function("","return false;"));
 
 
 
+// =================================================================
+// ====== Yoast SEO
+// =================================================================
+
+// remove comment
+function remove_yoast(){
+  global $wpseo_front;
+  remove_action( 'wpseo_head', array($wpseo_front, 'debug_marker') , 2 );
+}
+ 
+add_action('wp_enqueue_scripts','remove_yoast');
+
+
+
+
+
 
 // =================================================================
 // ====== Custom image sizes

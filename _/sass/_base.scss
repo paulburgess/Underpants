@@ -1,219 +1,21 @@
-@import 'compass/css3';
+/* Placeholders + Mixins */
+/* http://www.sitepoint.com/sass-mixin-placeholder/ */
 
-$green: #1690A4;
-$orange: #F17E1D;
-$purple: #7964B0;
-$pink: #E92358;
-$grey: #C5C5C5;
+@import "compass/css3";
+
+/* Colours */
+
+
 
 /* Mixins */
 
 
-@mixin button ($bg: $green) {
-	
-	color: #FFF;
-	background: $bg;
-	padding:6px 10px;
-	@include border-radius(1000px);
-	text-decoration: none;
-	display: inline-block;
-	border: 0;
-	
-	&:hover {
-		background: lighten($bg,8%);
-		color:#FFF;
-	}
-	
+/* https://gist.github.com/taupecat/4090271 */
+@mixin modernizr($test) {
+    html.#{$test} & {
+        @content;
+    }
 }
-
-@mixin list-image ($img: list_image_orange-arrow) {
-
-	margin: 0;
-	padding: 0;
-	list-style-image: url('../img/' + $img + '.png');
-	list-style-position: inside;
-
-}
-
-/* For active navs - using mixin insread of placehodler/extend so selectors are not merged - awkward selctors on this blog/about bottom arrow */
-@mixin bottom-arrow {
-	top: 48px;
-	left: 50%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-	border-color: rgba(255, 255, 255, 0);
-	border-top-color: #ffffff;
-	border-width: 10px;
-	margin-left: -10px;
-}
-
-
-
-a {
-	
-	color:$orange;
-	text-decoration: none;
-	
-	&:hover {
-		color: lighten($orange,8%);
-	}
-	
-	
-}
-
-
-/* == Working with bottom margins only */
-
-h1, h2, h3, h4, h5, h6, p, li, ul {
-	margin-top: 0;
-}
-
-/* == Buttons */
-
-.button {
-	color: #FFF;
-	text-align: center;
-	text-transform: uppercase;
-	background: $green;
-	display: inline-block;
-	padding: 10px 10%;
-	
-	&:hover {
-		background: lighten($green, 5%);
-		color: #FFF;
-	}
-	
-}
-
-
-
-
-/* == Nav lists */
-
-
-
-header, footer {
-
-	nav ul {
-		
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		
-		
-		li {
-			float: left;
-			position: relative;
-			
-		}
-		
-	}
-
-}
-
-.side-nav ul {
-	@include list-image;
-	
-	li {
-		text-transform: uppercase;
-		@include adjust-font-size-to(14px);		
-	}
-	
-	a {
-		color: #111;
-		
-		&:hover {
-			color: $orange;
-		}
-		
-	}
-	
-}
-
-
-header.main {
-
-	li.current-menu-item,
-	li.current-page-ancestor {
-		font-weight: 700;		
-	}
-
-}
-
-/* About - active navs */
-
-/*
-
-About - 17
-Blog - 87
-Team - 85
-*/
-
-.page-id-17 a.about,
-.page-id-87 a.blog,
-.page-id-85 a.team,
-.single-team-member a.team,
-.home a.about,
-.blog a.blog,
-.single a.blog
- {
-color: #FFF;
-background: $green;
-	
-}
-
-
-
-/* Headers with shadows / Common template */
-
-.page-template-page-resellers-php,
-.page-template-default,
-.single
- {
-
-	header.main {
-		border-bottom: 1px #CCC solid;
-		@include box-shadow(#CCC 0px 4px 15px);	
-	}
-
-
-	
-	
-	.intro {
-		padding-top: rhythm(1.5);
-		padding-bottom: rhythm(1.5);
-		margin-bottom: 0;
-	}
-	
-	.intro h1 {
-	@include adjust-font-size-to(48px);	
-	@include adjust-leading-to(.75);
-	color: #111;
-	text-align: left;			
-	}
-	
-	
-	h2 {
-		font-weight: normal;
-		@include adjust-font-size-to(34px);
-		@include adjust-leading-to(.75);			
-	}
-	
-	h3 {
-	color: $green;
-	font-weight: normal;
-	margin-bottom: rhythm(.2);	
-	}	
-
-	
-	
-}
-
-
 
 
 
@@ -227,19 +29,38 @@ background: $green;
 ::-moz-selection{background: #333; color: #fff; text-shadow: none;}
 ::selection {background: #333; color: #fff; text-shadow: none;} 
 
-
-/*
-a {color: blue;text-decoration: none;}
-a:hover {color: lighten(blue,10%);}
-*/
-
 a:link {-webkit-tap-highlight-color: #333;} 
 
+a {
+	color: red;
+}
 
-input:-moz-placeholder { color:#CCC; }
-textarea:-moz-placeholder { color:#CCC; }
+a:hover {
+	color: green;
+}
+
+a {
+	@include single-transition(all, .15s, ease, 0);
+}
 
 
+/* Work with bottom borders
+================================= */
+h1, h2, h3, h4, h5, h6,p {
+	margin-top: 0;
+}
+
+
+
+
+/* Links
+================================= */
+
+a {
+	text-decoration: none;
+}
+
+/* Clearfix */
 .cf { *zoom: 1; }
 .cf:before,
 .cf:after{ content: " "; display: table; }
@@ -249,30 +70,39 @@ address {
 	font-style: normal;
 }
 
+.fixed {
+	position: fixed;
+}
+
 .hidden {
 	display: none !important;
 }
 
-/* Placeholder styling */
-::-webkit-input-placeholder { /* WebKit browsers */
- color:    #000000;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
- color:    #000000;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
- color:    #000000;
-}
-:-ms-input-placeholder { /* Internet Explorer 10+ */
- color:    #000000;
+/* Base style for lists
+================================= */
+
+nav ul {
+
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	
+	li {
+		float:left;
+		
+	}
+	
 }
 
 
-@media only screen and (min--moz-device-pixel-ratio: 2),
-only screen and (-o-min-device-pixel-ratio: 2/1),
-only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (min-device-pixel-ratio: 2) {
-
- /* RETINA BITS */
-
+footer[role="contentinfo"]{
+	
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	
 }
+
+
