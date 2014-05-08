@@ -32,7 +32,8 @@
 	}
 
 	// Posted On
-	function posted_on() {
+	/*
+function posted_on() {
 		printf( __( '<span class="sep">Posted </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a> by <span class="byline author vcard">%5$s</span>', '' ),
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
@@ -41,6 +42,37 @@
 			esc_attr( get_the_author() )
 		);
 	}
+*/
+
+function posted_on(){
+		?>
+		
+		<?php the_time('jS F, Y'); ?>
+
+		<?php
+	}
+
+// Custom excerpt length + format
+function new_excerpt_more( $more ) {
+	return '&hellip;';
+/*
+	if(is_front_page()){
+	return '&nbsp;<span class="genericon genericon-next"></span>';		
+	} else {
+	return '&hellip;';
+	}
+*/
+}
+
+add_filter('excerpt_more', 'new_excerpt_more');
+
+
+function custom_excerpt_length( $length ) {
+	return 25; // words
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+
 
 
 // easy get slug in the loop - or just use $post->post_name
