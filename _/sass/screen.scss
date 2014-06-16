@@ -26,6 +26,7 @@ $light-blue: #C4E1FD;
 /* Base styles */
 @import "base";
 @import "forms";
+@import "block-grid"
 
 /* Icons */
 @import "icons";
@@ -40,20 +41,17 @@ $light-blue: #C4E1FD;
 
 
 
-@import "foundation/components/global"; // *always required
-/* @import "foundation/components/grid"; */
-@import "foundation/components/block-grid";
 
 
 @include add-grid(2); /* Mobile first */
-@include add-grid(12 at $breakpoint-medium-up);
+@include add-grid(12 at emCalc(600));
 /*
 @include add-grid(9 at 40em);
 @include add-grid(12 at 50em);
 */
 
 
-@include add-gutter(20px);
+@include add-gutter(emCalc(20));
 
 
 
@@ -61,10 +59,6 @@ $light-blue: #C4E1FD;
 /* Basics
 ---------------------------------- */
 
-body.home,
-html.home {
-	height: 100%;
-}
 
 html {
 	background-color: #333; 
@@ -79,7 +73,6 @@ body {
 
 #{headings()} {
     text-transform: uppercase;
-    margin-top: 0;
     font-family: Arial, sans-serif;
     line-height: 100%;
     font-weight: normal;
@@ -88,17 +81,6 @@ body {
 
 
 
-/* Acts like a 'row' */
-.wrapper {
-	max-width: 1140px;
-	/* min-height: 100%; */
-	margin: 0 auto;
-	/* @include background-grid(blue); */
-	@include clearfix;
-	padding: 0 20px;
-
-}
-
 
 
 body {
@@ -106,46 +88,31 @@ body {
 	background: transparent;
 }
 
-.intro {
 
-	height: 75%;
-	background-image: url();
-	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-	background-size: cover;
-	background-position: center top;
-	position: relative;
-	margin-bottom: emCalc(40);
+
+
+/* /////// Breakpoint + singularity syntax */
+/*
+
+.selector {
+
+	@include breakpoint(emCalc(767)){
+			@include grid-span(6,7);
+	}
 
 }
-/*
 
-Target awkward size tablet screen e.g. Nexus 7 + shallow screens
-(min-width emCalc(400))
 */
 
+/* Awkward height tablets in landscape e.g. Nexus 7 */
 /*
-@include breakpoint((max-height emCalc(711)) ){
+@include breakpoint((max-height emCalc(660)) (min-width emCalc(701)) ){
 
-	
-	.intro {
-		height: 90%;
-	}
 
 }
 */
 
 
-/* /////// Breakpoint syntax */
-
-
-@include breakpoint($breakpoint-small-up){
-	.header-strip {
-		margin-bottom: 30px;	
-	}
-	
-	
-}
 
 
 
