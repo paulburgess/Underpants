@@ -3,12 +3,36 @@
 
 @import "compass/css3";
 
-/* Colours */
+/* ------------------------------------------- */
+/* -- Colours */
+/* ------------------------------------------- */
+
+/* ------------------------------------------- */
+/* -- Placehodlers */
+/* ------------------------------------------- */
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
 
 
+%wrapper {
+	max-width: $site-width;
+	margin: 0 auto;
+	position: relative;
+	padding-left: emCalc(20);
+	padding-right: emCalc(20);	
+	@extend %clearfix;
+}
 
-/* Mixins */
 
+/* ------------------------------------------- */
+/* -- Mixins */
+/* ------------------------------------------- */
 
 /* https://gist.github.com/taupecat/4090271 */
 @mixin modernizr($test) {
@@ -43,13 +67,11 @@ a {
 	@include single-transition(all, .15s, ease, 0);
 }
 
-
 /* Work with bottom borders
 ================================= */
-h1, h2, h3, h4, h5, h6,p {
-	margin-top: 0;
+#{headings()}, p {
+	margin-top: 0; 
 }
-
 
 
 
@@ -59,12 +81,6 @@ h1, h2, h3, h4, h5, h6,p {
 a {
 	text-decoration: none;
 }
-
-/* Clearfix */
-.cf { *zoom: 1; }
-.cf:before,
-.cf:after{ content: " "; display: table; }
-.cf:after { clear: both; }
 
 address {
 	font-style: normal;
