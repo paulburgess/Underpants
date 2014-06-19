@@ -100,6 +100,14 @@ function wpse_128636_redirect_post() {
 }
 */
 
+// Using Metronet reorder plugin? Specify posy types to use it on here:
+
+add_filter('metronet_reorder_post_types', 'set_reorder');
+function set_reorder($post_types){
+	$post_types = array('video');
+	return $post_types;
+}
+
 
 // Automatically link Twitter names in content
 function content_twitter_mention($content) {
