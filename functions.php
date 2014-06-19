@@ -76,12 +76,14 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 
 // easy get slug in the loop - or just use $post->post_name
-function the_slug() {
-    $post_data = get_post($post->ID, ARRAY_A);
-    $slug = $post_data['post_name'];
-    return $slug; 
+function the_slug($echo=true){
+  $slug = basename(get_permalink());
+  do_action('before_slug', $slug);
+  $slug = apply_filters('slug_filter', $slug);
+  if( $echo ) echo $slug;
+  do_action('after_slug', $slug);
+  return $slug;
 }
-
 
 // disable single post views on certain CPT - useful if using CPTs to build a single page
 // http://wordpress.stackexchange.com/questions/128636/how-to-disable-the-single-view-for-a-custom-post-type
