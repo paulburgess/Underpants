@@ -1,10 +1,6 @@
 @import 'compass/css3';
 
 
-/* Colours */
-$light-green: #D4EB48;
-$brown: #F1B83F;
-$light-blue: #C4E1FD;
 
 /* $link: $light-green; */
 
@@ -16,11 +12,8 @@ $light-blue: #C4E1FD;
 // think in pixels - output in ems
 @import "emCalc";
 
-
 //Global Foundation Settings
-@import "settings";
 @import "normalize";
-
 
 
 /* Base styles */
@@ -43,99 +36,5 @@ $light-blue: #C4E1FD;
 
 
 
-@include add-grid(2); /* Mobile first */
-@include add-grid(12 at emCalc(600));
-/*
-@include add-grid(9 at 40em);
-@include add-grid(12 at 50em);
-*/
 
-
-@include add-gutter(emCalc(20));
-
-
-
-
-/* Basics
----------------------------------- */
-
-
-html {
-	background-color: #333; 
-	background-image: url('../img/inner-bg.png');
-
-}
-
-body {
-	font-family: 'Open Sans', Arial, sans-serif;
-	line-height: 100%;
-}
-
-#{headings()} {
-    text-transform: uppercase;
-    font-family: Arial, sans-serif;
-    line-height: 100%;
-    font-weight: normal;
-    }
-
-
-
-
-
-
-body {
-	color: #CCC;
-	background: transparent;
-}
-
-
-
-
-/* /////// Breakpoint + singularity syntax */
-/*
-
-.selector {
-
-	@include breakpoint(emCalc(767)){
-			@include grid-span(6,7);
-	}
-
-}
-
-*/
-
-/* Awkward height tablets in landscape e.g. Nexus 7 */
-/*
-@include breakpoint((max-height emCalc(660)) (min-width emCalc(701)) ){
-
-
-}
-*/
-
-
-
-
-
-
-
-
-/* Header / Logo
------------------------------------------------ */
-/* @import "header"; */
-
-
-/* Navigation 
------------------------------------------------ */
-/* @import "nav"; */
-
-/* etc. */
-
-
-/* IE fixes
---------------------------------------- */
-
-.ie8 {
-
-
-} 
  

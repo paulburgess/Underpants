@@ -76,6 +76,7 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 
 // easy get slug in the loop - or just use $post->post_name
+// http://www.tcbarrett.com/2011/09/wordpress-the_slug-get-post-slug-function/
 function the_slug($echo=true){
   $slug = basename(get_permalink());
   do_action('before_slug', $slug);

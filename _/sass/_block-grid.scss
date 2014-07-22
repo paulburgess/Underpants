@@ -3,6 +3,15 @@
 //
 $include-html-grid-classes: $include-html-classes !default;
 
+$base-font-size: 100% !default;
+$base-line-height: 100%;
+$default-float: left;
+$include-html-classes: true;
+
+
+$block-grid-elements: 12;
+$block-grid-default-spacing: emCalc(20);
+
 // We use this to control the maximum number of block grid elements per row
 $block-grid-elements: 12 !default;
 $block-grid-default-spacing: emCalc(20px) !default;
@@ -19,7 +28,12 @@ $block-grid-default-spacing: emCalc(20px) !default;
     display: block;
     padding: 0;
     margin: 0 -($spacing/2);
-    @include clearfix;
+	    &:after {
+	    content: "";
+	    display: table;
+	    clear: both;
+	  }
+
 
     &>li {
       display: inline;

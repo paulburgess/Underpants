@@ -3,11 +3,34 @@
 
 @import "compass/css3";
 
+/* Breakpoints */
+/*
+$breakpoint-small-up: emCalc(100px);
+$breakpoint-medium-up: emCalc(750px);
+*/
+
+
+/* ------------------------------------------- */
+/* -- Singularity grid */
+/* ------------------------------------------- */
+
+
+@include add-grid(12); /* Mobile first */
+/* @include add-grid(12 at emCalc(600)); */
+@include add-gutter(emCalc(20));
+
+/* $row-width: emCalc(1400); */
+$column-gutter: emCalc(50);
+$total-columns: 12;
+
+
+
 /* ------------------------------------------- */
 /* -- Colours + Variables */
 /* ------------------------------------------- */
 
 $site-width: emCalc(1140);
+
 
 
 /* ------------------------------------------- */
@@ -70,12 +93,37 @@ a {
 	@include single-transition(all, .15s, ease, 0);
 }
 
+
+
+
+
+
+/* Basics
+---------------------------------- */
+
+html {
+	background-color: #333; 
+	background-image: url('../img/inner-bg.png');
+}
+
+body {
+	font-family: 'Open Sans', Arial, sans-serif;
+	line-height: 100%;
+}
+
+#{headings()} {
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    line-height: 100%;
+    font-weight: normal;
+}
+
+
 /* Work with bottom borders
 ================================= */
 #{headings()}, p {
 	margin-top: 0; 
 }
-
 
 
 /* Links
